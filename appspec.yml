@@ -1,0 +1,37 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/node-js
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  BeforeInstall:
+    - location: bin/before_install.sh
+      timeout: 10
+      runas: ec2-user
+      
+  AfterInstall:
+    - location: bin/after_install.sh
+      timeout: 1200
+      runas: ec2-user
+      
+  ApplicationStart:
+    - location: bin/application_start.sh
+      timeout: 50000
+      runas: ec2-user
+
+  ApplicationStop:
+    - location: bin/application_stop.sh
+      timeout: 10
+      runas: ec2-user
+
+#ValidateService:
+#   - location: bin/app-validate
+#    timeout: 10
+#    runas: ec2-user
