@@ -2,6 +2,7 @@
 
 # Stop all servers and start the server as a daemon
 # forever stopall
+sudo npm install
 sudo npm install -g node-gyp
 npm install bcrypt
 
