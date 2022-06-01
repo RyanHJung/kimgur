@@ -8,6 +8,7 @@ nvm install node
 sudo npm install -g node-gyp
 npm install bcrypt
 cd node-js
+npm init
 npm start
 
 # forever start /home/ec2-user/node-js/server.js
